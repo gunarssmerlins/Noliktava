@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.KursKlients">
+   <children>
+      <VBox alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="200.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Label text="Izvēlies klientu">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="customerFX" prefWidth="150.0" />
+            <Button fx:id="okFX" mnemonicParsing="false" prefWidth="150.0" text="OK" />
+            <Button fx:id="backFX" mnemonicParsing="false" onAction="#backToControPanel" prefWidth="150.0" text="Atpakaļ" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

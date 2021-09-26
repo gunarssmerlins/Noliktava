@@ -1,0 +1,24 @@
+.root{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Sans Serif";
+}
+
+.button{
+    -fx-padding: 2;
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+}
+
+.gridpane{
+    -fx-padding: 20;
+    -fx-hgap: 20;
+    -fx-vgap: 20;
+    -fx-alignment: center-center;
+}
+
+.vbox{
+    -fx-spacing: 10;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-alignment: center;
+    -fx-padding: 10, 10, 10, 10;
+}
