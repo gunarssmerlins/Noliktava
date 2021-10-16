@@ -17,7 +17,7 @@ public class Main extends Application {
         Scene skats = new Scene(root, 600, 400, Color.ROYALBLUE);
         primaryStage.setScene(skats);
 //        skats.getStylesheets().add("pack/stylesheet.css");
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(e -> Platform.exit());

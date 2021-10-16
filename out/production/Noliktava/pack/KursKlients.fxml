@@ -7,18 +7,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.KursKlients">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="javafx.com/javafx" xmlns:fx="javafx.com/fxml/1" fx:controller="pack.KursKlients">
    <children>
       <VBox alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="200.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Label text="Izvēlies klientu">
+            <Label fx:id="nosaukumsFX" text="Izvēlies klientu">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <ComboBox fx:id="customerFX" prefWidth="150.0" />
-            <Button fx:id="okFX" mnemonicParsing="false" prefWidth="150.0" text="OK" />
-            <Button fx:id="backFX" mnemonicParsing="false" onAction="#backToControPanel" prefWidth="150.0" text="Atpakaļ" />
+            <Button fx:id="okFX" mnemonicParsing="false" onAction="#toNextView" prefWidth="150.0" text="OK">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font></Button>
+            <Button fx:id="backFX" mnemonicParsing="false" onAction="#backToControPanel" prefWidth="150.0" text="Atpakaļ">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font></Button>
          </children>
       </VBox>
    </children>

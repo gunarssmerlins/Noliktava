@@ -3,6 +3,7 @@ package pack;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,46 +43,39 @@ public class Login implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        usernameFX.getEditor().setFont(Font.font("Arial", FontWeight.NORMAL, 13));
 
         //Ielasam lietotājvārdus no db
-        ObservableList<String> options = FXCollections.observableArrayList();
-
-        mysqlConnection mysqlConnection = new mysqlConnection();
-        Connection connection = mysqlConnection.getConnection();
-        String sql = "SELECT user FROM noliktava.users";
-        Statement pst = null;
-        ResultSet rs = null;
+        dbConnect db = new dbConnect();
         try {
-            pst = connection.prepareStatement(sql);
-            rs = pst.executeQuery(sql);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            usernameFX.setItems( db.getObservableListFromColumn("SELECT user FROM noliktava.users", "user"));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        while (true) {
-            try {
-                if (!rs.next()) break;
-                options.add(rs.getString("user"));
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+        usernameFX.setOnAction((event) -> {
+            int selectedIndex = usernameFX.getSelectionModel().getSelectedIndex();
+            Object selectedItem = usernameFX.getSelectionModel().getSelectedItem();
+            System.out.println(event);
+
+            System.out.println("Izvēlēts: [" + selectedIndex + "] " + selectedItem +
+                    "\n\tComboBox.getValue(): " + usernameFX.getValue());
+        });
+
+        usernameFX.setOnKeyPressed(ke -> {
+            if (ke.getCode().equals(KeyCode.ENTER)) {
+
             }
-        }
-        usernameFX.setItems(options);
+        });
+    }
 
-        try {
-            pst.close();
-            rs.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-//
-//        usernameFX.setItems(conn.listColumn("SELECT user FROM noliktava.users"));
-
-//        okFX.setOnAction();
+    public void onComboBoxClick(){
 
     }
 
-    public void checkPassw(ActionEvent event) throws SQLException, IOException {
+
+    // uz ko darīt logu.
+    public void checkPassw (ActionEvent event) throws SQLException, IOException {
         mysqlConnection mysqlConnection = new mysqlConnection();
         Connection connection = mysqlConnection.getConnection();
         String sql = "SELECT password FROM noliktava.users WHERE user='" + usernameFX.getValue() + "'";

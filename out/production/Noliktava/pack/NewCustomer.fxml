@@ -23,14 +23,20 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Jauns klients" GridPane.columnSpan="2">
+            <Label fx:id="nameLabelFX" text="Jauns klients" GridPane.columnSpan="2">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <TextField fx:id="customerFX" onKeyReleased="#checkCustomer" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-            <Button fx:id="okFX" mnemonicParsing="false" onAction="#addCustomer" prefWidth="80.0" text="OK" GridPane.rowIndex="2" />
-            <Button fx:id="backFX" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="67.0" text="Atcelt" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Button fx:id="okFX" mnemonicParsing="false" onAction="#addCustomer" prefWidth="80.0" text="OK" GridPane.rowIndex="2">
+                <font>
+                    <Font name="SansSerif Regular" size="13.0" />
+                </font></Button>
+            <Button fx:id="backFX" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="67.0" text="Atcelt" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                <font>
+                    <Font name="SansSerif Regular" size="13.0" />
+                </font></Button>
             <Label fx:id="errorFX" text=" " textFill="RED" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="18.0" />

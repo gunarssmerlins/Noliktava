@@ -3,29 +3,42 @@ package pack;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class NewCustomer {
+public class NewCustomer implements Initializable {
 
+    @FXML private Label nameLabelFX;
     @FXML private TextField customerFX;
     @FXML private Button okFX;
     @FXML private Label errorFX;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        customerFX.setFont(Font.font("Arial"));
+        nameLabelFX.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        errorFX.setFont(Font.font("Arial", FontWeight.NORMAL, 13));
+    }
 
-    // pārbauda pasūtījuma numura unikalitāti, nav lieks!!!
+
+    // pārbauda pasūtījuma numura unikalitāti
     public Boolean checkCustomer() throws SQLException {
         okFX.setDisable(false);
         customerFX.setStyle("-fx-text-inner-color: black");
@@ -101,4 +114,6 @@ public class NewCustomer {
         window.show();
         System.out.println("back() in action");
     }
+
+
 }

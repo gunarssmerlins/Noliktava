@@ -23,6 +23,7 @@ CREATE TABLE products (
 productID int NOT NULL AUTO_INCREMENT,
 productName VARCHAR(128),
 pcsperbox INT,
+barcode INT,
 customerID INT,
 FOREIGN KEY (customerID) REFERENCES customers(customerID),
 PRIMARY KEY (productID)

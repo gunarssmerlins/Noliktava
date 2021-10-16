@@ -38,12 +38,14 @@ public class KoDarit {
 
     public void viewStock(ActionEvent event) throws IOException {
         KursKlients.whatOp = "view";
-        Parent viewOrders = FXMLLoader.load(getClass().getResource("KlientaKrajumi.fxml"));
+        Parent viewOrders = FXMLLoader.load(getClass().getResource("KursKlients.fxml"));
         Scene viewOrdersScene = new Scene(viewOrders);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(viewOrdersScene);
         window.show();
     }
+
+
 
     public void newCustomer(ActionEvent event) throws IOException {
         Parent viewOrders = FXMLLoader.load(getClass().getResource("NewCustomer.fxml"));
@@ -52,6 +54,8 @@ public class KoDarit {
         window.setScene(viewOrdersScene);
         window.show();
     }
+
+
 
 
     public void handleCloseButtonAction(ActionEvent event) {
